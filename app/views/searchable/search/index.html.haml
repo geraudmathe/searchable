@@ -1,0 +1,24 @@
+%br/
+%br/
+%br/
+%br/
+%ul.nav.nav-tabs
+	- @models.each_with_index do |m,k|
+		- if k==0
+			%li.active
+				%a{:href=>"##{m}",:data=>{:toggle=>"tab"}}=m
+		- else
+			%li{}
+				%a{:href=>"##{m}",:data=>{:toggle=>"tab"}}=m
+.tab-content
+	- @models.each_with_index do |m,k|
+		.tab-pane{:id=>"#{m}",:class=>"#{k==0 ? 'active' : ''}"}
+			%h3 Search fields
+			= form_tag(search_path,:method=>"post") do
+				= hidden_field_tag "model_name", m.to_s
+				- m.fields.each do |f|
+					- unless ["_id","_type"].include? f[0]
+						.alert.alert-info.span5
+							= render(:partial =>"searchable/search/forms/#{f.last.type.to_s.downcase}", :locals =>{:field=>f,:model=>m})
+				.span11
+					%input{:type=>"submit",:class=>"button button-valid"}

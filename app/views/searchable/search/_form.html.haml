@@ -1,0 +1,6 @@
+%h2= "Search in #{@model.name}"
+= form_tag("/admin/search/form",:method=>"post") do
+	= hidden_field_tag "model_name", @model.name
+	- @model.fields.each do |f|
+		= render(:partial =>"searchable/search/forms/tiny/#{f.type.to_s.downcase}", :locals =>{:field=>f,:model=> @model})
+	= submit_tag

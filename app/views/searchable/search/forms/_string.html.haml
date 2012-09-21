@@ -1,0 +1,6 @@
+.form
+	Search for a
+	= field.first.humanize
+	corresponding to
+	%br/
+	%input{:type=>"text",:name => "#{model}[#{field.first.to_s.downcase}]"}

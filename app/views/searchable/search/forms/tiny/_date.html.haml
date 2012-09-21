@@ -1,0 +1,7 @@
+.form-row
+	.mask
+	Search for a
+	= field.first
+	corresponding to
+	%br/
+	= date_select "toto", 'tutu' ,  {:use_short_month => 1, :order => [ :day, :month, :year]}, {:class => "span1" }

@@ -1,0 +1,6 @@
+.form
+	Search for a
+	= field.name
+	corresponding to
+	%br/
+	%input{:type=>"text",:name => "#{@model.reference.name}[#{field.name.downcase}]"}

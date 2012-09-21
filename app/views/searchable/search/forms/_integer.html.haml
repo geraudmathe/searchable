@@ -1,0 +1,8 @@
+.form
+	Search for a
+	= field.first
+	%input{:type=>"radio"} <
+	%input{:type=>"radio"} =
+	%input{:type=>"radio"} >
+	to
+	%input{:type=>"text", :name => "#{model}[#{field.first.to_s.downcase}]"}

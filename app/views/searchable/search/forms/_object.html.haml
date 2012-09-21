@@ -1,0 +1,7 @@
+.form
+	Search for a
+	= model
+	that
+	= field.last.options[:metadata].macro.to_s.humanize
+	= field.first.humanize
+	= select_tag "#{model}[#{field.first.to_s.downcase}]", :include_blank => true

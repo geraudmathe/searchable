@@ -1,0 +1,11 @@
+.form
+	Search for a
+	= field.name
+	= radio_button_tag "#{@model.name}[#{field.name}_int_scope]", "less"
+	<
+	= radio_button_tag "#{@model.name}[#{field.name}_int_scope]", "equal"
+	\=
+	= radio_button_tag "#{@model.name}[#{field.name}_int_scope]", "more"
+	>
+	to
+	%input{:type=>"text", :name => "#{@model.reference.name}[#{field.name}]"}

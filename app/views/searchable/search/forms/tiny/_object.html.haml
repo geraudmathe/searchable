@@ -1,0 +1,6 @@
+.form
+	Search for a
+	= @model.to_s
+	that have
+	= field.name.humanize
+	= select_tag "#{@model.to_s}[#{field.name}]",options_for_select(field.belongs_to_select_options ), :include_blank => true

@@ -12,15 +12,15 @@ module Searchable
 
     def search
     	if params[:model_name].present?
-        instance = Searchable::ModelMapper.new params[:model_name]
-        instance.add_criterias params[params[:model_name]]
-        entries = instance.entries
-        if entries.size == 0
-            path = root_path
-        elsif entries.size > 0
-            path = find_path_model(instance)
-        end
-        redirect_to path
+            instance = Searchable::ModelMapper.new params[:model_name]
+            instance.add_criterias params[params[:model_name]]
+            entries = instance.entries
+            if entries.size == 0
+                path = root_path
+            elsif entries.size > 0
+                path = find_path_model(instance)
+            end
+            redirect_to path
         end
     end
 

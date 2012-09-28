@@ -7,10 +7,10 @@ require "searchable/version"
 Gem::Specification.new do |s|
   s.name        = "searchable"
   s.version     = Searchable::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["Géraud MATHE"]
+  s.email       = ["mail@geraudmathe.com"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Searchable."
+  s.summary     = "This gem allow to perform searchs on mongoid models."
   s.description = "TODO: Description of Searchable."
   s.extra_rdoc_files = [ "README.md" ]
   s.files = Dir["{app,config,db,lib}/**/*"] + ["lib/generators/install/install_generator.rb","MIT-LICENSE", "Rakefile", "README.rdoc"]

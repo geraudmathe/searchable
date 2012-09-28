@@ -8,8 +8,8 @@ Installation
 
 Just install the gem , add the following line to your Gemfile :
 
-	gem 'searchable', :git => "git://github.com/geraudmathe/searchable.git"
-
+	gem 'searchable', :github => "geraudmathe/searchable"
+	
 
 Usage
 -----
@@ -20,7 +20,7 @@ To enable the gem to filter the results based on the given criterias , you have 
 	namespace :admin do
 		mount Searchable::Engine => "/search"
 	end
-
+	
 Now , the searchable engine is able to perform queries based on the parameters filled in the search form.
 
 Given the app contain a model ```Book``` like :
@@ -33,13 +33,13 @@ Given the app contain a model ```Book``` like :
 
 		has_many :pages
 		belongs_to :author
-	end
-
+	end 
+	
 
 Go in your index view (here app/views/admin/books/index ), and add the following method :
 
 	= mongoid_search_form :model => :books
-
+	
 Reload your page, you should see something like :
 
 <img src="http://i49.tinypic.com/21x2ex.png" border="0" alt="Searchable form example">
@@ -51,19 +51,19 @@ The last thing is , you need to catch the result in your controller to get the s
 Go in the related Controller (In this example, app/controllers/admin/books_controller.rb) and add :
 
 	class Admin::BooksController < ApplicationController
-    searchable_resource Book
-
-    def index
-        @books =  search_results || Book.all
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @books }
-        end
-      end
-
-      …
+		searchable_resource Book
+		
+		def index
+    		@books =  search_results || Book.all
+    		respond_to do |format|
+      			format.html # index.html.erb
+      			format.json { render json: @books }
+    		end
+    	end
+    	
+    	… 
     end
-
+    
 Here, we add the method ```searchable_resource MODEL``` to enable the matching of the  model with the search results, after that , just set the method ```search_results``` into your index instance variable value, if some result correspond to the search parameters, they will be returned by ```search_results```, otherwise, the classic set of data returned .
 
 Todo

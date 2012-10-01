@@ -25,9 +25,11 @@ module Searchable
 		end
 
 
-		def add_criterias params
+		def add_criterias *args
+      #excluded = args.last[:exclude] || []
+
 			fields.each do |field|
-				value = params[field.name.to_sym]
+				value = args.first[field.name.to_sym]
 				add_criteria(field.name.to_sym,value) if value.present?
 			end
       criteria
@@ -37,6 +39,10 @@ module Searchable
 			self.criteria = self.name.capitalize.constantize if self.criteria == nil
     		self.criteria = self.criteria.where(key => value)
   	end
+
+    def filtered_fields excluded
+      fields.delete_if{ |field| excluded.include?(field.name.to_sym)}
+    end
 
   	def entries
   		self.criteria.entries

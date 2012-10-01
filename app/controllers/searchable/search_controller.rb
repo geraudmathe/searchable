@@ -5,7 +5,7 @@ module Searchable
     DEFAULT_NAMESPACE = "admin"
 
     def index
-        parsing = MongoModel.new
+        #parsing = MongoModel.new
         @models = parsing.models
     end
 

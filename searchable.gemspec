@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "This gem allow to perform searchs on mongoid models."
   s.description = "TODO: Description of Searchable."
   s.extra_rdoc_files = [ "README.md" ]
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["lib/generators/install/install_generator.rb","MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.5"
